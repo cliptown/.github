@@ -1,10 +1,430 @@
 {
+  "$schema": "./repository-relationships.schema.json",
+  "audience": "public",
+  "generated": {
+    "complete_for_visibility": "public",
+    "generated_at": "2026-08-05T21:07:32Z",
+    "generator_version": "2026-08-04.1",
+    "inventory_digest": "sha256:e5a58d5c99db91c0cd3ba6c1424612a89833a81dae492deb2a66a7de8eba7f69",
+    "managed_by": "ore-repository-relationship-rollout",
+    "omitted_repository_count": 1,
+    "private_repositories_omitted": true,
+    "source": "GitHub GraphQL repository inventory plus reviewed manual declarations"
+  },
+  "owner": {
+    "account_type": "organization",
+    "dotgithub_repository": "cliptown/.github",
+    "github_id": "309492430",
+    "linear_project": {
+      "id": "83b03121-db08-4e34-a69f-99fd1c873ced",
+      "name": "github.com/cliptown",
+      "team_id": "eb8ab169-5afe-4b6f-9cab-3f2aa3e887dc",
+      "url": "https://linear.app/denman/project/githubcomcliptown-adf62fab3f42",
+      "workspace": "denman"
+    },
+    "login": "cliptown",
+    "mapping_id": "context:cliptown"
+  },
+  "private_registry": {
+    "contains_non_public_inventory": true,
+    "digest": "sha256:3582efc54f580dc2800cefe717fe702903f9ffa4df17c6af806c20326af1f355",
+    "path": "owners/cliptown.json",
+    "repository": "ORESoftware/project-registry"
+  },
+  "relationships": [
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "cliptown/.github",
+      "id": "sha256:94480fdc5113124055179ad0da51c8defc848803ff1801bf69549540b29b19b8",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "cliptown/cliptown-cli",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "cliptown/.github",
+      "id": "sha256:cd1789f7cec35e70330e9f03b2fe5888e7e892ab6689d1ddb311b0bba43d35a7",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "cliptown/cliptown-clients",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "cliptown/.github",
+      "id": "sha256:03c2951e345d7a8d980e12517aca9ceb14c5b1298ae6e4ddd68e0b3b4c62ba35",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "cliptown/cliptown-extension",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "cliptown/.github",
+      "id": "sha256:4bf7a2fd7ee3d7e051c439e043292a62444408bef0499c563aeabf465f5dfc50",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "cliptown/cliptown-flutter",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "cliptown/.github",
+      "id": "sha256:b1dca9bdcf4986da8538921c200bbc1c2ff8ebc0b0b7e7a7e9209f469713d250",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "cliptown/cliptown-infra",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "cliptown/.github",
+      "id": "sha256:bd480cb9eab293551c98856d44c21fe60ceff6c8def27f0ba78be8a51583129c",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "cliptown/cliptown-interfaces",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "cliptown/.github",
+      "id": "sha256:62feeedfd9cbccb859b638197e5f56a01377b74ce847de802054f028f76fb918",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "cliptown/cliptown-monorepo",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "cliptown/.github",
+      "id": "sha256:809df0c5d0972628adb3a5bee582a921ffdb7eb44802169c3e8a4f24da191e88",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "cliptown/cliptown-rust-backend.rs",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "cliptown/.github",
+      "id": "sha256:592f94c12f842e869c99a83e7f66992ea46615903ffdcecb4abc02fc5c1bd738",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "cliptown/cliptown.github.io",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "cliptown/.github",
+      "id": "sha256:bd62f57dbc08de86e9b98de1f5f6a01c47fab8bbca8e8d947fbae8314c723c82",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "cliptown/homebrew-cliptown",
+      "type": "governs"
+    },
+    {
+      "confidence": 0.82,
+      "evidence": [
+        {
+          "family": "cliptown",
+          "kind": "paired-repository-naming",
+          "source_role": "clients",
+          "target_role": "interfaces"
+        }
+      ],
+      "from": "cliptown/cliptown-clients",
+      "id": "sha256:f9782f9b3f172b47b6b9db70bf6c347e0ecc9e9ca2138dd370935f1a42d36237",
+      "notes": "Conservative naming inference; confirm or override in the manual declaration file.",
+      "required": false,
+      "scope": "organization",
+      "status": "inferred",
+      "to": "cliptown/cliptown-interfaces",
+      "type": "depends_on"
+    },
+    {
+      "confidence": 0.76,
+      "evidence": [
+        {
+          "family": "cliptown",
+          "kind": "paired-repository-naming"
+        }
+      ],
+      "from": "cliptown/cliptown-infra",
+      "id": "sha256:ff45355c42fcc49e9984f45d30234becda4fce8efa385b4d7cb36dc254e9cb39",
+      "notes": "Conservative naming inference; confirm or override in the manual declaration file.",
+      "required": false,
+      "scope": "organization",
+      "status": "inferred",
+      "to": "cliptown/cliptown-monorepo",
+      "type": "deploys"
+    },
+    {
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "kind": "repository-name",
+          "value": "cliptown.github.io"
+        }
+      ],
+      "from": "cliptown/cliptown.github.io",
+      "id": "sha256:0248bae64d19fd19d4ef250deb6ccc4bafe746c686268b613ab7b3926d32ff30",
+      "notes": "The conventional *.github.io repository documents the organization profile.",
+      "required": false,
+      "scope": "organization",
+      "status": "inferred",
+      "to": "cliptown/.github",
+      "type": "documents"
+    }
+  ],
+  "repositories": [
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "cliptown/.github",
+      "github_id": "1324047332",
+      "name": ".github",
+      "owner": "cliptown",
+      "roles": [
+        "community-health",
+        "governance",
+        "relationship-registry"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/cliptown/.github",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "cliptown/cliptown-cli",
+      "github_id": "1313121711",
+      "name": "cliptown-cli",
+      "owner": "cliptown",
+      "roles": [
+        "repository"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/cliptown/cliptown-cli",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "cliptown/cliptown-clients",
+      "github_id": "1313105880",
+      "name": "cliptown-clients",
+      "owner": "cliptown",
+      "roles": [
+        "clients"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/cliptown/cliptown-clients",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "cliptown/cliptown-extension",
+      "github_id": "1313121740",
+      "name": "cliptown-extension",
+      "owner": "cliptown",
+      "roles": [
+        "repository"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/cliptown/cliptown-extension",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "cliptown/cliptown-flutter",
+      "github_id": "1313105860",
+      "name": "cliptown-flutter",
+      "owner": "cliptown",
+      "roles": [
+        "repository"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/cliptown/cliptown-flutter",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "cliptown/cliptown-infra",
+      "github_id": "1313105936",
+      "name": "cliptown-infra",
+      "owner": "cliptown",
+      "roles": [
+        "infrastructure"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/cliptown/cliptown-infra",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "cliptown/cliptown-interfaces",
+      "github_id": "1313105904",
+      "name": "cliptown-interfaces",
+      "owner": "cliptown",
+      "roles": [
+        "interfaces"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/cliptown/cliptown-interfaces",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "cliptown/cliptown-monorepo",
+      "github_id": "1313105723",
+      "name": "cliptown-monorepo",
+      "owner": "cliptown",
+      "roles": [
+        "monorepo"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/cliptown/cliptown-monorepo",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "cliptown/cliptown-rust-backend.rs",
+      "github_id": "1313105835",
+      "name": "cliptown-rust-backend.rs",
+      "owner": "cliptown",
+      "roles": [
+        "backend"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/cliptown/cliptown-rust-backend.rs",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "cliptown/cliptown.github.io",
+      "github_id": "1313113404",
+      "name": "cliptown.github.io",
+      "owner": "cliptown",
+      "roles": [
+        "documentation-site"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/cliptown/cliptown.github.io",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "cliptown/homebrew-cliptown",
+      "github_id": "1313121758",
+      "name": "homebrew-cliptown",
+      "owner": "cliptown",
+      "roles": [
+        "repository"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/cliptown/homebrew-cliptown",
+      "visibility": "public"
+    }
+  ],
   "schema_version": 1,
-  "organization": "cliptown",
-  "generated_at": null,
-  "repositories": [],
-  "notes": [
-    "Populate from live GitHub inventory; do not infer unverified dependencies.",
-    "Repository-local manifests remain authoritative for exact dependency versions."
-  ]
+  "unresolved_hints": []
 }
