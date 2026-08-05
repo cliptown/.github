@@ -29,7 +29,7 @@
     "contains_non_public_inventory": true,
     "digest": "sha256:3582efc54f580dc2800cefe717fe702903f9ffa4df17c6af806c20326af1f355",
     "path": "owners/cliptown.json",
-    "repository": "ORESoftware/project-registry"
+    "repository": "approved-private-registry"
   },
   "relationships": [
     {
