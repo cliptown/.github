@@ -63,7 +63,7 @@ Shared schemas, clients, route fixtures, clipboard-item formats, sync contracts,
 
 The live Flutter repository records the companion contract in [`COMPANION_DESKTOP.md`](https://github.com/cliptown/cliptown-flutter/blob/main/COMPANION_DESKTOP.md), introduced through [PR #6](https://github.com/cliptown/cliptown-flutter/pull/6).
 
-Central toolkit assignments: [`rust-desktop-strategies.md`](https://github.com/ORESoftware/project-registry/blob/main/docs/rust-desktop-strategies.md).
+Central toolkit assignments: [`approved-private-registry`](private-registry://canonical/registry/rust-desktop-strategies.md).
 
 ## Project routing
 
