@@ -22,8 +22,6 @@ Use read-only inspection and non-pruning synchronization such as `git status --s
 
 Preserve shared history with ordinary merge commits: avoid git rebase in favor of git merge.
 
-Preserve shared history with ordinary merge commits: avoid git rebase in favor of git merge.
-
 ## Mandatory semantic conflict resolution
 
 > resolve any and all git conflicts semantically, will full context, even looking back 3-10 commits in git log history for more context - never hastily pick sides in a conflict but merge things conceptually, using max context and complete conceptual awareness for a given github organization's repos and external org repos too
