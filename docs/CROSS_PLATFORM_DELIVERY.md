@@ -1,6 +1,6 @@
 # Cross-platform application delivery contract
 
-Updated **2026-08-22**.
+Updated **2026-08-24**.
 
 This is the organization-level acceptance contract for ClipTown applications.
 It states what must be proven before a platform is called shipped. It does not,
@@ -49,6 +49,48 @@ extension, foreground, and user-initiated flows are tested as real platform
 flows; CI must not claim unrestricted background clipboard monitoring when the
 OS forbids it. Emulator/simulator coverage is necessary but does not replace
 release-candidate validation on at least one supported physical device per OS.
+
+## Bluetooth and proximity delivery
+
+Bluetooth Low Energy is an optional, foreground, user-consented transport for
+already encrypted ClipTown clipboard offers and opaque Shared Auth/3FA step-up
+requests when ordinary networking is unavailable. It is not a new identity
+provider or factor. Discovery, RSSI, operating-system pairing/bonding, a matching
+display code, and successful delivery never raise AAL or authorize an import.
+
+| Target/client | Required BLE role |
+|---|---|
+| Flutter Android | central and peripheral |
+| Flutter iOS | central and peripheral |
+| Flutter Windows | central and peripheral |
+| Flutter macOS | central and peripheral |
+| Flutter Linux | central; peripheral is an explicit unsupported gap |
+| Rust Windows, macOS, Linux | central |
+
+Both desktop applications must consume the same closed, versioned proximity
+fixture while retaining independent radio adapters and release evidence. A
+fixed service UUID plus an HMAC-derived rotating identifier is the maximum
+advertisement surface; advertisements never contain a stable account/device ID
+or clipboard/auth data. Envelopes are encrypted, recipient/session/purpose/
+sequence/expiry bound, signed by an enrolled device key, digest checked, limited
+to 32 KiB, and valid for no more than 120 seconds. Pairing requires bilateral
+confirmation of a transcript-derived six-digit code, and each clipboard offer
+requires separate, one-use import consent.
+
+For authentication, only an opaque `shared-auth:step-up:relay` request may cross
+the proximity channel. PINs, passwords, OTP/TOTP values or seeds, recovery codes,
+tokens, private keys, biometric material, factor proofs/results, and final
+assurance claims are prohibited. ClipTown changes assurance only after it
+independently verifies the normal Shared Auth result; authority unavailability
+remains `degraded`, never offline success.
+
+Hosted CI must cover shared-contract parity plus permission denial/revocation,
+radio-off, wrong recipient/code, one-sided consent, replay, reorder, expiry,
+oversize, digest/signature mismatch, background teardown, disconnect, and
+reconnect simulations. Release enablement additionally requires physical-radio
+canaries for Android-to-Android, iOS-to-iOS, Android-to-iOS, and Android/iOS to
+each Windows, macOS, and Linux desktop implementation. Mock, emulator, simulator,
+and hosted-runner success is not physical Bluetooth evidence.
 
 ## Storage and search acceptance
 
@@ -130,6 +172,10 @@ Use these status terms precisely:
 - [ ] Flutter impact evaluated for Windows, macOS, Linux, Android, and iOS.
 - [ ] Rust desktop impact evaluated for Windows, macOS, and Linux.
 - [ ] Shared fixture and paired-desktop impact evaluated.
+- [ ] Bluetooth central/peripheral role and permission impact evaluated for all
+  five Flutter targets and all three Rust desktop targets.
+- [ ] Proximity contract negatives and required physical-radio device pairs are
+  recorded; hosted simulation is not presented as radio evidence.
 - [ ] Text/image/file, retention, pin, and lexical/vector-search behavior tested.
 - [ ] Local encrypted SQLite/key-store behavior tested independently in both apps.
 - [ ] PostgreSQL/CockroachDB/R2 contract and migration impact evaluated.

@@ -21,6 +21,11 @@ iOS; Rust/GPUI is delivered to Windows, macOS, and Linux. The
 the exact-head CI, paired E2E, encrypted storage/search, signing, store, and
 deployment evidence required before a platform is called shipped.
 
+The same contract governs consented encrypted Bluetooth proximity for offline
+clipboard sharing and opaque Shared Auth/3FA request relay. It requires tandem
+Flutter/Rust desktop evidence and real Android/iOS-to-desktop radio canaries;
+hosted simulations do not count as physical Bluetooth evidence.
+
 <!-- org-project-routing:start -->
 ## Planning and delivery
 

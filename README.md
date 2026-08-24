@@ -13,6 +13,10 @@ Windows, macOS, and Linux. See the
 [`desktop application allocation`](docs/DESKTOP_APPLICATIONS.md) for paired E2E,
 storage/search, signing, store, migration, and deployment requirements.
 
+That contract includes consented encrypted Bluetooth proximity for network-down
+clipboard sharing and opaque Shared Auth/3FA request relay, with independent
+Flutter/Rust desktop evidence and physical-device release gates.
+
 <!-- ore-org-baseline:begin -->
 ## Organization-wide defaults
 

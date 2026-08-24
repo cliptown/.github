@@ -1,6 +1,6 @@
 # Desktop application allocation
 
-Updated **2026-08-22**. Repository and branch existence were verified on that
+Updated **2026-08-24**. Repository and branch existence were verified on that
 date; merge, signed-release, store, and live-service status must still be proven
 at the exact commit being promoted.
 
@@ -80,6 +80,28 @@ plaintext hash.
 
 Shared schemas, clients, route fixtures, clipboard-item formats, sync contracts, and conformance tests must be versioned deliberately.
 
+## Bluetooth and offline proximity
+
+The Flutter desktop app supports the BLE central role on Windows, macOS, and
+Linux and the peripheral role on Windows and macOS. Linux peripheral support is
+an explicit gap until its reviewed backend exists. The independent Rust desktop
+app supports the central role on Windows, macOS, and Linux. Both implementations
+must pass the same proximity fixture and security-negative matrix in tandem;
+neither may proxy all behavior through the other.
+
+Radio discovery is an untrusted transport observation. A user starts discovery
+or advertising in the foreground, both enrolled devices confirm a transcript-
+derived code, and every clipboard offer receives separate one-use consent.
+Backgrounding, permission revocation, radio loss, cancellation, timeout, or peer
+substitution tears down the session. No stable device/account identity or clip
+content appears in advertisements, notifications, telemetry, or crash reports.
+
+ClipTown may relay only an opaque Shared Auth step-up request to the 3FA app.
+Bluetooth, RSSI, pairing, bonding, matching codes, and delivery are never AMR or
+assurance. The apps must wait for an independently verified Shared Auth result;
+they never transport OTPs, PINs, seeds, tokens, biometric data, factor results,
+or assurance claims over the proximity channel.
+
 ## Required platform evidence
 
 - Flutter: Windows, macOS, Linux, Android, and iOS builds and automated tests.
@@ -89,6 +111,9 @@ Shared schemas, clients, route fixtures, clipboard-item formats, sync contracts,
 - Installed-app E2E: startup, capture text/image/file data, search, retention,
   pin exemption, restart persistence, single-instance/tray/shortcut behavior,
   and crash diagnostics. Headless storage tests do not replace installed-app E2E.
+- Bluetooth: hosted protocol/error matrices plus physical Android/iOS-to-each-
+  desktop radio canaries; a mocked adapter or successful compilation is not an
+  installed-radio pass.
 - Release: immutable exact-commit artifacts plus Windows signing, macOS signing
   and notarization, Linux package verification, Android app signing, and iOS
   signing/TestFlight or store evidence. A build artifact is not a deployment.
