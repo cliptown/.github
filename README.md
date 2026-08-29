@@ -4,6 +4,19 @@ This public `.github` repository contains organization-wide community health fil
 
 Repository-local policy wins when it is stricter or more specific. Existing project history must be preserved during consolidation and conflict resolution.
 
+## Application delivery
+
+ClipTown ships two independent desktop products side by side: Flutter and native
+Rust/GPUI. Flutter targets Windows, macOS, Linux, Android, and iOS; Rust targets
+Windows, macOS, and Linux. See the
+[`cross-platform delivery contract`](docs/CROSS_PLATFORM_DELIVERY.md) and
+[`desktop application allocation`](docs/DESKTOP_APPLICATIONS.md) for paired E2E,
+storage/search, signing, store, migration, and deployment requirements.
+
+That contract includes consented encrypted Bluetooth proximity for network-down
+clipboard sharing and opaque Shared Auth/3FA request relay, with independent
+Flutter/Rust desktop evidence and physical-device release gates.
+
 <!-- ore-org-baseline:begin -->
 ## Organization-wide defaults
 

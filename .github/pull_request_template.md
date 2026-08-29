@@ -14,6 +14,9 @@ Describe affected repositories, APIs, schemas, generated artifacts, migrations, 
 
 - [ ] Relevant formatters, linters, tests, builds, contract checks, security checks, and end-to-end checks passed
 - [ ] Validation ran against the exact proposed head and authoritative remote checks were inspected
+- [ ] Flutter impact was evaluated for Windows, macOS, Linux, Android, and iOS
+- [ ] Rust desktop and paired-E2E impact was evaluated for Windows, macOS, and Linux
+- [ ] Signing, store/installer, real-device, database migration, and R2 evidence is recorded or explicitly out of scope
 - [ ] Conflicts, if any, were resolved semantically using both sides, 3–10 relevant prior commits when useful, and cross-repository context
 - [ ] No destructive or history-rewriting operation was executed or recommended
 - [ ] No secrets, personal data, or production data are included

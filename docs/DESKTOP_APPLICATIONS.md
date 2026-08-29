@@ -1,19 +1,28 @@
 # Desktop application allocation
 
-Verified **2026-08-06**.
+Updated **2026-08-24**. Repository and branch existence were verified on that
+date; merge, signed-release, store, and live-service status must still be proven
+at the exact commit being promoted.
 
 Cliptown uses the paired desktop application standard:
 
-- Rust: [`cliptown/cliptown-desktop.rs`](https://github.com/cliptown/cliptown-desktop.rs) — **planned**, not yet verified as a published repository.
-- Flutter: [`cliptown/cliptown-flutter`](https://github.com/cliptown/cliptown-flutter) — **live**.
+- Rust: [`cliptown/cliptown-desktop.rs`](https://github.com/cliptown/cliptown-desktop.rs) — published, native GPUI/no-WebView desktop product.
+- Flutter: [`cliptown/cliptown-flutter`](https://github.com/cliptown/cliptown-flutter) — published Flutter desktop and mobile product.
 
-The Rust URL is an allocation target, not proof that the remote exists. Do not mark it live until the repository, native targets, tests, packaging, and platform matrix are verified.
+Both are active products and will be developed perpetually side by side. Neither
+is a prototype, temporary fallback, rewrite destination, or replacement for the
+other. A repository existing is not proof of feature parity, packaging, or a
+production deployment.
 
 ## Why both Rust and Flutter remain active
 
 The two applications are first-class, side-by-side product implementations. They exist to compare native performance, memory use, clipboard/tray integration, accessibility, cross-platform consistency, developer velocity, Flutter mobile reuse, release engineering, and long-term maintenance with real feature work.
 
-Every desktop-facing feature must inspect both repositories, use shared acceptance criteria and fixtures, and normally update both. A one-sided change requires a no-change rationale and recorded parity gap. Neither app may be neglected while the comparison program is active.
+Every desktop-facing feature must inspect both repositories, use shared
+acceptance criteria and fixtures, and normally update both. A one-sided change
+requires a no-change rationale and recorded parity gap. App-specific tests stay
+independent; a separate paired suite must run both exact revisions against the
+same fixtures on Windows, macOS, and Linux.
 
 ## Rust desktop kit: GPUI
 
@@ -55,13 +64,69 @@ GPUI receives OS URL events through narrow platform modules and forwards only va
 
 ## Product boundary
 
-Both implementations should support semantic parity for clipboard monitoring, tray behavior, global shortcuts, pinned and historical items, search, local storage, offline sync, authentication, cross-device state, notifications, import/export, deep links, and recovery.
+Both implementations must support semantic parity for text, rich text, images,
+and file lists; automatic clipboard monitoring; configurable unpinned history
+retention; pinning; lexical and vector search; encrypted local SQLite storage;
+offline behavior; tray and global-shortcut access; deduplication; secure sync;
+authentication; cross-device state; notifications; import/export; deep links;
+and recovery. Platform limitations must be explicit rather than simulated.
+
+Each app owns a separate SQLite database and local index. Text embeddings are
+fixed-width vectors stored and searched locally in SQLite. Opted-in cloud backup
+encrypts the model identifier and vector on the device before PostgreSQL or
+CockroachDB sees them. Image and file bytes are encrypted on the device before
+Cloudflare R2; object keys are randomized and never contain a local path or a
+plaintext hash.
 
 Shared schemas, clients, route fixtures, clipboard-item formats, sync contracts, and conformance tests must be versioned deliberately.
 
+## Bluetooth and offline proximity
+
+The Flutter desktop app supports the BLE central role on Windows, macOS, and
+Linux and the peripheral role on Windows and macOS. Linux peripheral support is
+an explicit gap until its reviewed backend exists. The independent Rust desktop
+app supports the central role on Windows, macOS, and Linux. Both implementations
+must pass the same proximity fixture and security-negative matrix in tandem;
+neither may proxy all behavior through the other.
+
+Radio discovery is an untrusted transport observation. A user starts discovery
+or advertising in the foreground, both enrolled devices confirm a transcript-
+derived code, and every clipboard offer receives separate one-use consent.
+Backgrounding, permission revocation, radio loss, cancellation, timeout, or peer
+substitution tears down the session. No stable device/account identity or clip
+content appears in advertisements, notifications, telemetry, or crash reports.
+
+ClipTown may relay only an opaque Shared Auth step-up request to the 3FA app.
+Bluetooth, RSSI, pairing, bonding, matching codes, and delivery are never AMR or
+assurance. The apps must wait for an independently verified Shared Auth result;
+they never transport OTPs, PINs, seeds, tokens, biometric data, factor results,
+or assurance claims over the proximity channel.
+
+## Required platform evidence
+
+- Flutter: Windows, macOS, Linux, Android, and iOS builds and automated tests.
+- Rust: Windows, macOS, and Linux native builds and automated tests.
+- Paired desktop: the same versioned local-history fixture and semantic journeys
+  on all three desktop operating systems, with independent database/key stores.
+- Installed-app E2E: startup, capture text/image/file data, search, retention,
+  pin exemption, restart persistence, single-instance/tray/shortcut behavior,
+  and crash diagnostics. Headless storage tests do not replace installed-app E2E.
+- Bluetooth: hosted protocol/error matrices plus physical Android/iOS-to-each-
+  desktop radio canaries; a mocked adapter or successful compilation is not an
+  installed-radio pass.
+- Release: immutable exact-commit artifacts plus Windows signing, macOS signing
+  and notarization, Linux package verification, Android app signing, and iOS
+  signing/TestFlight or store evidence. A build artifact is not a deployment.
+
+The complete gates and honest current-status vocabulary live in
+[`CROSS_PLATFORM_DELIVERY.md`](CROSS_PLATFORM_DELIVERY.md).
+
 ## Repository-local documentation
 
-The live Flutter repository records the companion contract in [`COMPANION_DESKTOP.md`](https://github.com/cliptown/cliptown-flutter/blob/main/COMPANION_DESKTOP.md), introduced through [PR #6](https://github.com/cliptown/cliptown-flutter/pull/6).
+The Flutter repository records the companion contract in
+[`COMPANION_DESKTOP.md`](https://github.com/cliptown/cliptown-flutter/blob/main/COMPANION_DESKTOP.md).
+The cross-implementation suite is owned by
+[`cliptown-e2e`](https://github.com/cliptown/cliptown-e2e).
 
 Central toolkit assignments: [`approved-private-registry`](private-registry://canonical/registry/rust-desktop-strategies.md).
 

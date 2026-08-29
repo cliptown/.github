@@ -12,6 +12,20 @@ This organization maintains software, infrastructure, interfaces, clients, servi
 
 Organization-wide contribution and security guidance lives in this `.github` repository.
 
+## Applications
+
+ClipTown maintains Flutter and native Rust desktop apps as independent,
+perpetual peers. Flutter is delivered to Windows, macOS, Linux, Android, and
+iOS; Rust/GPUI is delivered to Windows, macOS, and Linux. The
+[`cross-platform delivery contract`](../docs/CROSS_PLATFORM_DELIVERY.md) defines
+the exact-head CI, paired E2E, encrypted storage/search, signing, store, and
+deployment evidence required before a platform is called shipped.
+
+The same contract governs consented encrypted Bluetooth proximity for offline
+clipboard sharing and opaque Shared Auth/3FA request relay. It requires tandem
+Flutter/Rust desktop evidence and real Android/iOS-to-desktop radio canaries;
+hosted simulations do not count as physical Bluetooth evidence.
+
 <!-- org-project-routing:start -->
 ## Planning and delivery
 
