@@ -1,0 +1,45 @@
+name: Cross-repository rollout
+description: Coordinate a ClipTown feature or security change across independent source repositories
+title: "rollout: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Observable outcome
+      description: Describe the user or operational outcome, not just a code refactor.
+    validations:
+      required: true
+  - type: textarea
+    id: owners
+    attributes:
+      label: Owning repositories and draft PRs
+      description: Identify the source-of-truth contract, shared library, SDKs, applications, and E2E owner. Link distinct draft PRs.
+      placeholder: |
+        cliptown-interfaces: 
+        cliptown-lib: 
+        cliptown-clients: 
+        cliptown-e2e: 
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Security and privacy boundaries
+      description: Confirm consent, ciphertext-only transport, scoped shared-auth, device trust, and no cross-product clipboard fallback where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation and parity evidence
+      description: List exact commits, test runs, supported OS/platforms, cross-language conformance, and any testing limitations.
+    validations:
+      required: true
+  - type: textarea
+    id: rollout
+    attributes:
+      label: Release, fallback and rollback
+      description: Identify feature-gated rollout, canary conditions, compatibility breakpoints, and a reversible rollback sequence.
+    validations:
+      required: true
