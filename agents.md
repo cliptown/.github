@@ -87,6 +87,15 @@ Existing `.py` automation is migration debt, **not** precedent for new work. Inv
 
 A narrowly scoped Python **product/application** implementation requires an explicit documented and reviewed exception; it does not permit Python testing/CI/maintenance scripts. See [CONTRIBUTING.md](CONTRIBUTING.md#rust-first-scripts-and-automation). These instructions are not automatically inherited by sibling repositories; synchronize local agents and CI explicitly.
 
+
+## AttoLang and cross-repository test migration (November 2026)
+
+- For `cliptown-clients`, `cliptown-interfaces`, and `cliptown-e2e`, **write new regression, security, matrix, conformance, and source-receipt tests in Rust**, using `#[test]` and `cargo test`; do not introduce Python test files, `python -c`, Python heredocs, Python CI generators, or Python-backed replacement harnesses.
+- Use `cargo fmt --check`, `cargo clippy -- -D warnings`, and reproducible `cargo test` commands on the exact PR head. Pin third-party Actions and external source checkouts to immutable SHAs; avoid secrets in source/test fixtures.
+- Existing Python CI validators are **not** considered migrated by adding a Rust smoke test. Keep each original gate required until a Rust replacement checks the same schema rules, malformed-input canaries, SHA/source receipts, command-line behavior, and failure paths. Record a separate gate-by-gate migration before removing a Python caller.
+- Do not claim that static `.atto` source checks establish executable AttoLang HTTP/crypto transport, compiler backend parity, or device-level interoperability. Keep such promotion blocked on tested runtime evidence.
+- Organization `.github` documents are not automatically enforced in other repositories; copy the approved rule to each repository-local agent policy and workflow in reviewable PRs.
+
 ## Repository-local Git worktrees
 
 - Create or use a Git worktree only when the human operator explicitly authorizes it for the current task. Concurrency or a dirty checkout is not permission by itself.
