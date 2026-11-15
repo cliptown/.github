@@ -79,6 +79,14 @@ This organization policy overrides generic feature-branch and worktree defaults 
 - Preserve unrelated in-progress changes and never overwrite another agent's work. If safe ownership of overlapping files cannot be established, pause that overlapping edit and coordinate before continuing.
 <!-- ore-primary-branch-policy:end -->
 
+## Rust-first scripts, tests, and automation
+
+**Do not add Python scripts or Python test harnesses. Use Rust instead.** First-party CI checks, test runners, security scans, repository maintenance, build/release helpers, code generators and migrations should be written as reviewed Rust CLIs or `cargo xtask` commands, with thin shell/YAML launchers only where necessary.
+
+Existing `.py` automation is migration debt, **not** precedent for new work. Inventory users and behavior, add Rust positive/negative regression tests, prove cross-platform and exact-head CI parity, then switch callers in a separate reviewable PR. Never delete an existing validator or relax a gate before an equivalent Rust replacement passes. Do not run Python during new testing work.
+
+A narrowly scoped Python **product/application** implementation requires an explicit documented and reviewed exception; it does not permit Python testing/CI/maintenance scripts. See [CONTRIBUTING.md](CONTRIBUTING.md#rust-first-scripts-and-automation). These instructions are not automatically inherited by sibling repositories; synchronize local agents and CI explicitly.
+
 ## Repository-local Git worktrees
 
 - Create or use a Git worktree only when the human operator explicitly authorizes it for the current task. Concurrency or a dirty checkout is not permission by itself.
