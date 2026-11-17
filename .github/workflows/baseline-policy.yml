@@ -36,6 +36,8 @@ jobs:
           for file in "${required[@]}"; do
             test -s "$file" || { echo "::error file=$file::required baseline file is missing or empty"; exit 1; }
           done
-          python3 -m json.tool organization-policy.json >/dev/null
-          python3 -m json.tool repository-relationships.json >/dev/null
           ! git grep -nE '^(<<<<<<<|=======|>>>>>>>)' -- . ':!*.lock'
+      - name: Test Rust-first gate with negative cases
+        run: cargo test --manifest-path tools/rust-first-gate/Cargo.toml --all-targets
+      - name: Enforce Rust-first policy and parse baseline JSON in Rust
+        run: cargo run --quiet --manifest-path tools/rust-first-gate/Cargo.toml -- .
